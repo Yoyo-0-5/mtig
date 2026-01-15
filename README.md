@@ -62,3 +62,15 @@ mosquitto_sub -h localhost -t test -v
 ```bash
 mosquitto_pub -h localhost -t test -m "Hello MQTT!"
 ```
+
+### 資料庫
+
+```bash
+mosquitto_pub -h 127.0.0.1 -p 1883 -t "sensor/data" -m '{"id":"01","name":"玫瑰花","ph":7.0,"moisture":50.0,"co2":400.0,"o2":20.9,"nh3":0.1,"h2s":0.0,"isAuto":true}'
+```
+
+測試MQTT是否收入資料庫
+
+```bash
+docker exec mtig_influxdb influx -database 'metrics' -execute "SELECT * FROM mqtt_consumer WHERE time > now() - 5m ORDER BY time DESC LIMIT 10"
+```
