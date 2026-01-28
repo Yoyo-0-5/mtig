@@ -73,6 +73,17 @@ services:
             - backend
             - frontend
 
+    cloudflared:
+        image: cloudflare/cloudflared:latest
+        container_name: ${CONTAINER_PREFIX}_cloudflared
+        command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+        restart: always
+        networks:
+            - backend
+        depends_on:
+            - parser
+            - mosquitto
+
 networks:
     backend:
     frontend:
