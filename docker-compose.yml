@@ -59,6 +59,20 @@ services:
         networks:
             - frontend
 
+    parser:
+        build: ./parser
+        container_name: ${CONTAINER_PREFIX}_parser
+        ports:
+            - "5000:5000"
+        links:
+            - influxdb
+        restart: always
+        env_file:
+            - .env
+        networks:
+            - backend
+            - frontend
+
 networks:
     backend:
     frontend:

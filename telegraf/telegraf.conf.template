@@ -1764,7 +1764,7 @@
 
   ## Topics to subscribe to (訂閱所有主題)
   topics = [
-    "#",
+    "app055/data",
   ]
 
   # if true, messages that can't be delivered while the subscriber is offline
