@@ -3,8 +3,8 @@
 ### **clone安裝包**
 
 ```bash
-git clone https://github.com/Yoyo-0-5/mosquitto.git
-cd mosquitto
+git clone https://github.com/Yoyo-0-5/mtig.git
+cd mtig
 ```
 
 ### 安裝 docker (若沒安裝docker)
